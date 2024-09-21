@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>update-tester</title>
+    <link rel="stylesheet" href="update-tester.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">  
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Youngest&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="split-screen">
+
+        <div class="left">
+            <section class="spared">
+                <h1><strong>Launching soon!</strong></h1>     
+            </section>
+
+            <section class="spared">
+                <h1><strong>A one stop solution for a hassle free unidays!</strong></h1>
+            </section>
+
+            <div class="images">
+                <div class="item" style="--i: 1">
+                    <img src="Fashion.png" alt="">
+                </div>
+                <div class="item" style="--i: 2">
+                    <img src="food.png" alt="">
+                </div>
+                <div class="item" style="--i: 3">
+                    <img src="entertainment.png" alt="">
+                </div>
+                <div class="item" style="--i: 4">
+                    <img src="stay.png" alt="">
+                </div>
+                <div class="item" style="--i: 5">
+                    <img src="img5.png" alt="">
+                </div>
+                <div class="item" style="--i: 6">
+                    <img src="img6.png" alt="">
+                </div>
+                <div class="item" style="--i: 7">
+                    <img src="img7.png" alt="">
+                </div>
+            </div>
+
+            <button id="prev"><</button>
+            <button id="next">></button>
+
+        </div>
+
+        <div class="right">
+            <form>
+                <section class="spare">
+                    
+                    <div class="verse">
+                        <img src="Group 2 edited.png" alt="">
+                        <h2>Making students life easier!</h2>
+                        <p>Sign Up for Early Access!</p>
+                    </div>
+                </section>
+
+                <div class="input-container Username"></div>
+                <label for="username">Full Name</label>
+                <input type="text" name="user_name" id="username">
+
+                <div class="input-container clgname"></div>
+                <label for="clgname">College Name</label>
+                <input type="text" name="clgname" id="clgname">
+
+                <div class="input-container email">
+                    <label for="email">Mail Id</label>
+                    <input id="email" name="email" type="email">
+                </div>
+
+                <button type="submit" class="get_update">
+                    Get Updates
+                </button>
+
+            </form>
+        
+        </div>
+    </div>
+</body>
+
+<script>
+
+let prev = document.getElementById('prev');
+let next = document.getElementById('next');
+let image = document.querySelector('.images');
+let items = document.querySelectorAll('.images .item');
+
+let rotate = 0;
+let active = 0;
+let countItem = items.length;
+let rotateAdd = 360 / countItem;
+
+function show(){
+    image.style.setProperty('--rotate', rotate + 'deg');
+}
+
+function nextSlider(){
+    active = active + 1 > countItem - 1 ? 0 : active + 1;
+    rotate = rotate + rotateAdd;
+    show();
+}
+
+next.onclick = nextSlider;
+
+function prevSlider(){
+    active = active - 1 < 0 ? countItem - 1 : active - 1;
+    rotate = rotate - rotateAdd;
+    show();
+}
+
+prev.onclick = prevSlider;
+
+const autoNext = setInterval(nextSlider, 3000);
+
+</script>
+
+</html>
